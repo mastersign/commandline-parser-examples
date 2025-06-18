@@ -1,0 +1,45 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Bash Version",
+            "type": "bashdb",
+            "request": "launch",
+            "terminalKind": "integrated",
+            "program": "${workspaceFolder}/tool.sh",
+            "args": [
+                "-a",
+                "XYZ",
+                "--offset",
+                "123.4,56.7"
+            ]
+        },
+        {
+            "name": "Run Python Version",
+            "type": "debugpy",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "program": "${workspaceFolder}/tool.py",
+            "args": [
+                "-a",
+                "XYZ",
+                "--offset",
+                "123.4",
+                "56.7"
+            ]
+        },
+        {
+            "name": "Run NodeJS Version",
+            "type": "node",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "program": "${workspaceFolder}/tool.js",
+            "args": [
+                "-a",
+                "XYZ",
+                "--offset",
+                "123.4,56.7"
+            ]
+        },
+    ]
+}
