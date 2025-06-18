@@ -82,15 +82,16 @@ function parseCliArguments() {
   }
 }
 
-const args = parseCliArguments()
+// Befehlszeilenparser ausführen
+const cmdLine = parseCliArguments()
 
 // Hauptprogramm
 console.log('Programm wird ausgeführt mit:')
-if (args.altMode) {
+if (cmdLine.altMode) {
   console.log('  Modus:  alternativ')
 } else {
   console.log('  Modus:  normal')
 }
-console.log(`  Speed:  ${args.speed}`)
-console.log(`  Offset: (${args.offsetX}; ${args.offsetY})`)
-console.log(`  Input:  ${args.inputFile}`)
+console.log(`  Speed:  ${cmdLine.speed}`)
+console.log(`  Offset: (${cmdLine.offsetX}; ${cmdLine.offsetY})`)
+console.log(`  Input:  ${cmdLine.inputFile}`)

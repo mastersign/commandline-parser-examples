@@ -7,7 +7,7 @@ var cmdLine = new CommandLine();
 if (cmdLine.Help)
 {
     // Hilfetext ausgeben und beenden
-    PrintHelp();
+    CommandLine.PrintHelp();
     return 0;
 }
 if (cmdLine.HasError)
@@ -26,32 +26,6 @@ Console.WriteLine($"  Speed:  {cmdLine.Speed}");
 Console.WriteLine($"  Offset: {cmdLine.Offset}");
 Console.WriteLine($"  Input:  {cmdLine.InputFile}");
 return 0;
-
-// Funktionen
-
-static void PrintHelp() => Console.WriteLine(Invariant(
-    $"""
-    Syntax: tool [-a] [-s <S>] [-o <X> <Y>] <Eingabedatei>
-            tool -h | --help
-
-    Ein Beispiel für ein Befehlszeilenprogramm')
-
-    Schalter:
-      -h, --help
-          Zeigt diese Hilfe an.
-      -a, --alt
-          Führt das Programm im alternativen Modus aus.
-
-    Optionen:
-      -s, --speed <S>
-          Gibt die Geschwindigkeit an.
-          Standard: {CommandLine.DEFAULT_SPEED:0.0}
-      -o, --offset <X> <Y>
-          Gibt den Offset für die Ausführung in X- und Y-Richtung an.
-          Standard: {CommandLine.DEFAULT_OFFSET.X:0.0} {CommandLine.DEFAULT_OFFSET.Y:0.0}
-    """));
-
-// Typen
 
 /// <summary>
 /// Beschreibt eine 2-dimensionale Position.
@@ -91,6 +65,28 @@ class CommandLine
         this.argv = argv ?? Environment.GetCommandLineArgs();
         Parse();
     }
+
+    public static void PrintHelp() => Console.WriteLine(Invariant(
+        $"""
+        Syntax: tool [-a] [-s <S>] [-o <X> <Y>] <Eingabedatei>
+                tool -h | --help
+
+        Ein Beispiel für ein Befehlszeilenprogramm')
+
+        Schalter:
+        -h, --help
+            Zeigt diese Hilfe an.
+        -a, --alt
+            Führt das Programm im alternativen Modus aus.
+
+        Optionen:
+        -s, --speed <S>
+            Gibt die Geschwindigkeit an.
+            Standard: {CommandLine.DEFAULT_SPEED:0.0}
+        -o, --offset <X> <Y>
+            Gibt den Offset für die Ausführung in X- und Y-Richtung an.
+            Standard: {CommandLine.DEFAULT_OFFSET.X:0.0} {CommandLine.DEFAULT_OFFSET.Y:0.0}
+        """));
 
     private void Parse()
     {
