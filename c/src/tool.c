@@ -71,9 +71,8 @@ int parseDoubleValue(
 }
 
 int parseCliArguments(const int argc, const char *argv[]) {
-    int error = FALSE;
-    int i = 1;  // Pfad der ausfuehrbaren Datei ueberspringen
-    while (i < argc) {
+    // Schleife beginnt mit Index 1, um Pfad der ausfuehrbaren Datei zu überspringen
+    for (int i = 1; i < argc; i++) {
         if (matchKeyword(argv[i], "-h", "--help")) {
             help = TRUE;
             return OK; // Abkuerzung, wenn Hilfeschalter verwendet wird
@@ -84,20 +83,17 @@ int parseCliArguments(const int argc, const char *argv[]) {
             // Option mit einem Wert
             i++;
             if (parseDoubleValue(argc, argv, i, "<S>", &speed) != OK) {
-                error = TRUE;
-                break;
+                return ERR;
             }
         } else if (matchKeyword(argv[i], "-o", "--offset")) {
             // Option mit zwei Werten
             i++;
             if (parseDoubleValue(argc, argv, i, "<X>", &offsetX) != OK) {
-                error = TRUE;
-                break;
+                return ERR;
             }
             i++;
             if (parseDoubleValue(argc, argv, i, "<Y>", &offsetY) != OK) {
-                error = TRUE;
-                break;
+                return ERR;
             }
         } else {
             // Positionsargument(e)
@@ -106,21 +102,19 @@ int parseCliArguments(const int argc, const char *argv[]) {
             } else {
                 fprintf(stderr,
                     "Syntaxfehler: Es kann nur eine Eingabedatei verarbeitet werden\n");
-                error = TRUE;
-                break;
+                return ERR;
             }
         }
-        i++;
     }
 
     // Fehlererkennung
     if (inputFile == NULL) {
         fprintf(stderr,
             "Syntaxfehler: Es muss eine Eingabedatei angegeben werden\n");
-        error = TRUE;
+        return ERR;
     }
 
-    return error == TRUE ? ERR : OK;
+    return OK;
 }
 
 int main(int argc, char *argv[]) {
