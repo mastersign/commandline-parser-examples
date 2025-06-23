@@ -35,7 +35,7 @@ IF NOT EXIST obj\ MKDIR obj
 IF NOT EXIST bin\ MKDIR bin
 ECHO.Building program with Visual C Compiler
 ECHO.
-CL /EHsc /std:c++20 /O1 /Os /nologo /Fo.\obj\ /Fe".\bin\%PROGRAM_NAME%.exe" ".\src\%PROGRAM_NAME%.cpp"
+CL /EHsc /std:c++20 /O1 /Os /nologo /Fo.\obj\ /Fe".\bin\%PROGRAM_NAME%.exe" ".\src\%PROGRAM_NAME%.cpp" ".\src\cmdline.cpp"
 SET RESULT=%ERRORLEVEL%
 POPD
 
