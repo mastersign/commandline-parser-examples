@@ -23,7 +23,7 @@ tool -h | --help
 ```
 
 In einigen Implementierungen erwartet die Option `-o`/`--offset`
-ihre Werte `<X>` und `<Y>` auch als kommasparierte Liste `<X>,<Y>`.
+ihre Werte `<X>` und `<Y>` auch als kommaseparierte Liste `<X>,<Y>`.
 
 Das PowerShell-Skript `tool.ps1` hat weitere Besonderheiten,
 die dem Blog-Beitrag entnommen werden können.
