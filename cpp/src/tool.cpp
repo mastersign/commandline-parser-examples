@@ -32,7 +32,7 @@ int main(int argc, const char *argv[])
 
     // Hauptprogramm
     std::cout << "Programm wird ausgeführt mit:" << std::endl;
-    if (cli_args.altMode)
+    if (cli_args.alt_mode)
     {
         std::cout << "  Modus: alternativ" << std::endl;
     }

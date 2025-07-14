@@ -51,7 +51,7 @@ void cmdline::parse(const int argc, const char *argv[], CliArguments &target)
     // Ergebnisfelder mit Standardwerten initialisieren
     target.error.clear();
     target.help = false;
-    target.altMode = false;
+    target.alt_mode = false;
     target.speed = DEFAULT_SPEED;
     target.offset = DEFAULT_OFFSET;
     target.input_file.clear();
@@ -97,7 +97,7 @@ void cmdline::parse(const int argc, const char *argv[], CliArguments &target)
         else if (arg == "-a" || arg == "--alt")
         {
             // Schalter
-            target.altMode = true;
+            target.alt_mode = true;
         }
         else if (arg == "-s" || arg == "--speed")
         {

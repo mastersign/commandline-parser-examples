@@ -18,7 +18,7 @@ namespace cmdline
         std::string error;
 
         bool help;
-        bool altMode;
+        bool alt_mode;
         double speed;
         Position offset;
         std::string input_file;
